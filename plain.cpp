@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 // Function prototypes
@@ -72,8 +73,11 @@ int main() {
     // Run multiple test cases
     while (true) {
         // Prompt user for input
-        cout << "Enter a string to test: ";
+        cout << "Enter a string to test(q to quit): ";
         getline(cin, input);
+        if (input == "q" || input == "Q"){
+            break;
+        }
         
         // Check and display result
         isPalindrome(input);
