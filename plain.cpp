@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include <cctype> 
+#include <cstring>
 using namespace std;
 
 // Function prototypes
@@ -15,7 +17,13 @@ bool checkPalindrome(string, int, int);
  * This function uses a recursive helper function and displays the result.
  */
 void isPalindrome(string str) {
-    bool result = checkPalindrome(str, 0, str.length() - 1);
+    //changing string to ensure all characters are lower case
+    //This program is not case-sensitive and will read 'K' and 'k' as the same
+    string temp;
+    for (char ch : str){
+        temp += tolower(static_cast<unsigned char>(ch));
+    }
+    bool result = checkPalindrome(temp, 0, temp.length() - 1);
     
     if (result) {
         cout << "The string '" << str << "' is a Palindrome" << endl;
